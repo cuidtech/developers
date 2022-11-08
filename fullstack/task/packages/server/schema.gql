@@ -1,0 +1,15 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ExchangeRate {
+  country: String!
+  currency: String!
+  amount: Float!
+  code: String!
+  rate: Float!
+}
+
+type Query {
+  exchangeRates: [ExchangeRate!]!
+}

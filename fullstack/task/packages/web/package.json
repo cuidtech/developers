@@ -1,0 +1,29 @@
+{
+    "name": "@cuid/web",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+        "typescript": "tsc",
+        "prettier": "prettier --check \"./src/**/*.{ts,tsx}\"",
+        "prettier:fix": "prettier --write \"./src/**/*.{ts,tsx}\"",
+        "lint": "eslint \"./src/**/*.{ts,tsx}\"",
+        "lint:fix": "yarn lint --fix",
+        "codecheck": "yarn typescript && yarn prettier && yarn lint",
+        "start": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@apollo/client": "^3.7.1",
+        "graphql": "^16.6.0",
+        "react": "18.2.0",
+        "react-dom": "18.2.0"
+    },
+    "devDependencies": {
+        "@types/react": "18.0.17",
+        "@types/react-dom": "18.0.6",
+        "@vitejs/plugin-react": "2.1.0",
+        "typescript": "4.8.2",
+        "vite": "3.1.0"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "name": "cuid",
+    "packageManager": "yarn@3.2.3",
+    "workspaces": [
+        "packages/**"
+    ],
+    "scripts": {
+        "web": "yarn workspace @cuid/web",
+        "server": "yarn workspace @cuid/server",
+        "prettier:fix": "yarn workspaces foreach --verbose run prettier:fix",
+        "lint:fix": "yarn workspaces foreach --verbose run lint:fix",
+        "codecheck": "yarn workspaces foreach --verbose run codecheck"
+    },
+    "devDependencies": {
+        "@types/node": "18.8.0",
+        "@typescript-eslint/eslint-plugin": "5.39.0",
+        "@typescript-eslint/parser": "5.39.0",
+        "eslint": "8.24.0",
+        "eslint-config-airbnb": "19.0.4",
+        "eslint-config-prettier": "8.5.0",
+        "eslint-import-resolver-typescript": "3.5.1",
+        "eslint-plugin-import": "2.26.0",
+        "eslint-plugin-jsx-a11y": "6.6.1",
+        "eslint-plugin-prettier": "4.2.1",
+        "eslint-plugin-react": "7.31.8",
+        "eslint-plugin-react-hooks": "4.6.0",
+        "prettier": "2.7.1",
+        "ts-node": "10.9.1",
+        "tsconfig-paths": "4.1.0",
+        "typescript": "4.8.2"
+    }
+}
