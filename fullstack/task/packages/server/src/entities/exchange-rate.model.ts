@@ -2,6 +2,9 @@ import { Field, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class ExchangeRate {
+
+
+
     @Field(() => String)
     public country!: string;
 
