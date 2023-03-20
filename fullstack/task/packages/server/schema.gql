@@ -11,5 +11,7 @@ type ExchangeRate {
 }
 
 type Query {
-  exchangeRates: [ExchangeRate!]!
+  hello: String!
+  getRandomNumber: Float!
+  exchange_rates: [ExchangeRate!]!
 }
