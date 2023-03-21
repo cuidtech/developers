@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/header.css';
 
 type HeaderProps = {
     title: string;

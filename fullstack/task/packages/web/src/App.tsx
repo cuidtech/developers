@@ -9,8 +9,8 @@ function App() {
 
     return (
         <div>
-            <p>Add the exchange rates here</p>
             <Header title={title} />
+            <p>Add the exchange rates here</p>
             <ExchangeRates />
         </div>
     );

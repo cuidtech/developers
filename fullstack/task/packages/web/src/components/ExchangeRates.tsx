@@ -3,23 +3,19 @@ import React from 'react';
 import { ExchangeRate } from '@cuid/server/dist/entities';
 import { useQuery } from '@apollo/client';
 import { EXCHANGE_RATES_GQL_QUERY } from '../utils/constants';
+import './css/table.css';
 
 // eslint-disable-next-line react/function-component-definition
 const ExchangeRates: React.FC = () => {
     const { data, loading, error } = useQuery(EXCHANGE_RATES_GQL_QUERY);
-    // eslint-disable-next-line no-console
-    console.log(data);
 
     const rows: ExchangeRate[] = data?.exchange_rates;
-    // eslint-disable-next-line no-console
-    console.log(rows);
 
-    if (loading) return <pre>Loading...</pre>;
-    if (error) return <pre>{error.message}</pre>;
+    if (error) return <h2>{error.message}</h2>;
 
     return (
         <div>
-            <h3>Available Inventory</h3>
+            <br />
             {loading ? (
                 <p>Loading ...</p>
             ) : (
@@ -34,14 +30,14 @@ const ExchangeRates: React.FC = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data &&
-                            data.exchange_rates.map((inventory) => (
-                                <tr>
-                                    <td>{inventory.country}</td>
-                                    <td>{inventory.currency}</td>
-                                    <td>{inventory.amount}</td>
-                                    <td>{inventory.code}</td>
-                                    <td>{inventory.rate}</td>
+                        {rows &&
+                            rows.map((oneRate) => (
+                                <tr key={oneRate.code}>
+                                    <td id="country">{oneRate.country}</td>
+                                    <td id="currency">{oneRate.currency}</td>
+                                    <td id="amount">{oneRate.amount}</td>
+                                    <td id="code">{oneRate.code}</td>
+                                    <td id="rate">{oneRate.rate}</td>
                                 </tr>
                             ))}
                     </tbody>

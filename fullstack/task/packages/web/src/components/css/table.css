@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap');
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-family: 'Poppins', sans-serif;
+}
+h2 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: red;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-weight: 200;
+}
+
+th{
+    font-weight: 500;
+}
+
+#amount, #code {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+#rate {
+    text-align: right;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+th {
+    text-align: center;
+}
