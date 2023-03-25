@@ -29,6 +29,15 @@ The design of the table (and the website overall) is not the main focus of the t
 
 Both the Backend and the Frontend are built in TypeScript using Yarn. To get started with the project, follow these steps.
 
+# Getting right NodeJS version
+
+While working with Vite you might face some incompatibility issues with latest node 19 release, so it is highly recommendable to use nodeJS 18 LTS, you can switch your version following the next procedure:
+``` bash
+sudo npm install -g n
+sudo n lts
+```
+then check that node matches recomended 18.15.0 version
+
 ### 1. Install yarn
 
 Follow the instructions from [yarn's website](https://classic.yarnpkg.com/lang/en/docs/install) to install the `yarn` CLI.
