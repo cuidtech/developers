@@ -1,0 +1,6 @@
+query ExchangeRates() {
+    exchangeRates(historyLength: 2){
+        code
+        rates
+    }
+}

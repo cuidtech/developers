@@ -1,0 +1,16 @@
+"""Exposes a URL that specifies the behavior of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behavior of this scalar."""
+  url: String!
+) on SCALAR
+
+type ExchangeRate {
+  code: String!
+  description: String!
+  rates: [Float!]!
+}
+
+type Query {
+  exchangeRates(historyLength: Float): [ExchangeRate!]!
+  exchangeRate(code: String!, historyLength: Float): ExchangeRate!
+}
