@@ -1,7 +1,7 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
+    "latestRate": "Latest Rate",
+    "exchangeRates": "Exchange Rates",
+    "code": "Code"
+
 }
