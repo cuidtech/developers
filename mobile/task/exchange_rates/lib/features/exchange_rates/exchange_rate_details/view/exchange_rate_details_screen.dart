@@ -1,5 +1,5 @@
 import 'package:chart_sparkline/chart_sparkline.dart';
-import 'package:exchange_rates/core/utils/enums.dart';
+import 'package:exchange_rates/core/widgets/error_text.dart';
 import 'package:exchange_rates/di/injection.dart';
 import 'package:exchange_rates/features/exchange_rates/exchange_rate_details/cubit/exchange_rate_details_cubit.dart';
 import 'package:exchange_rates/l10n/l10n.dart';
@@ -47,11 +47,11 @@ class ExchangeRateDetailsScreen extends StatelessWidget {
       body: SafeArea(
         child: BlocBuilder<ExchangeRateDetailsCubit, ExchangeRateDetailsState>(
           builder: (context, state) {
-            if (state.stateStatus == StateStatus.loading) {
+            if (state.isLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state.stateStatus == StateStatus.success) {
+            } else if (state.isSuccess) {
               return Padding(
                 padding: const EdgeInsets.all(8),
                 child: Column(
@@ -69,6 +69,8 @@ class ExchangeRateDetailsScreen extends StatelessWidget {
                   ],
                 ),
               );
+            } else if (state.isFailure) {
+              return ErrorText(errorMessage: state.errorMessage);
             }
             return const SizedBox.shrink();
           },

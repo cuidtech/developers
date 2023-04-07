@@ -8,3 +8,10 @@ class ExchangeRateDetailsState with _$ExchangeRateDetailsState {
     ExchangeRateDetail? exchangeRateDetail,
   }) = _ExchangeRateDetailsState;
 }
+
+extension ExchangeRateDetailsStateX on ExchangeRateDetailsState {
+  bool get isInitial => stateStatus == StateStatus.initial;
+  bool get isLoading => stateStatus == StateStatus.loading;
+  bool get isSuccess => stateStatus == StateStatus.success;
+  bool get isFailure => stateStatus == StateStatus.failure;
+}

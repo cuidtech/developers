@@ -23,8 +23,10 @@ class _ExchangeRateCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                Text(exchangeRate.code,
-                    style: const TextStyle(color: Colors.white),),
+                Text(
+                  exchangeRate.code,
+                  style: const TextStyle(color: Colors.white),
+                ),
                 const Spacer(),
                 if (exchangeRate.isRising)
                   const Icon(
