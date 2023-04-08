@@ -56,14 +56,16 @@ class ExchangeRateListScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: state.exchangeRates.length,
-                    itemBuilder: (context, index) {
-                      return _ExchangeRateCard(
-                        exchangeRate: state.exchangeRates[index],
-                      );
-                    },
+                  Expanded(
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: state.exchangeRates.length,
+                      itemBuilder: (context, index) {
+                        return _ExchangeRateCard(
+                          exchangeRate: state.exchangeRates[index],
+                        );
+                      },
+                    ),
                   ),
                 ],
               );
