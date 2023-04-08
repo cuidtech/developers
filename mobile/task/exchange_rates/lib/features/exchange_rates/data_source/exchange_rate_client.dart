@@ -24,7 +24,7 @@ class ExchangeRateClient {
 
   Future<QueryResult> getSingleExchangeRate({
     required String code,
-    int historyLength = 10,
+    int historyLength = 2,
   }) async {
     final result = await _graphQLClient.query(
       QueryOptions(

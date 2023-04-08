@@ -16,29 +16,23 @@ class ExchangeRateDetailsCubit extends Cubit<ExchangeRateDetailsState> {
   final ExchangeRateRepository _exchangeRateRepository;
 
   Future<void> getExchangeRateDetails(String code) async {
-    try {
-      emit(
-        state.copyWith(
-          stateStatus: StateStatus.loading,
-        ),
-      );
-      final exchangeRateDetail =
-          await _exchangeRateRepository.getSingleExchangeData(
-        code,
-      );
-      emit(
-        state.copyWith(
+    emit(
+      state.copyWith(
+        stateStatus: StateStatus.loading,
+      ),
+    );
+    final exchangeRateDetail = await _exchangeRateRepository
+        .getSingleExchangeData(code, historyLength: 30);
+
+    emit(
+      exchangeRateDetail.fold(
+        (l) =>
+            state.copyWith(stateStatus: StateStatus.failure, errorMessage: l),
+        (r) => state.copyWith(
           stateStatus: StateStatus.success,
-          exchangeRateDetail: exchangeRateDetail,
+          exchangeRateDetail: r,
         ),
-      );
-    } catch (e) {
-      emit(
-        state.copyWith(
-          stateStatus: StateStatus.failure,
-          errorMessage: e.toString(),
-        ),
-      );
-    }
+      ),
+    );
   }
 }

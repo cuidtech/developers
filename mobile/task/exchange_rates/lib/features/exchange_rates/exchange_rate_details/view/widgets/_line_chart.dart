@@ -7,6 +7,7 @@ class _LineChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Sparkline(
+      kLine: const ['max', 'min', 'first', 'last'],
       lineColor: Colors.red,
       enableGridLines: true,
       enableThreshold: true,
