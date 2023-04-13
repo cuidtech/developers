@@ -1,0 +1,6 @@
+{
+  "appTitle": "exchange_rates",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
