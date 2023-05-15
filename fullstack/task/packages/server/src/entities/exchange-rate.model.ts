@@ -11,8 +11,9 @@ export class ExchangeRate {
     @Field(() => Number)
     public amount!: number;
 
-     @Field(() => String)
+    @Field(() => String)
     public code!: string;
-   @Field(() => Number)
+
+    @Field(() => Number)
     public rate!: number;
 }
