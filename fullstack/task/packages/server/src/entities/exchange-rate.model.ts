@@ -6,11 +6,13 @@ export class ExchangeRate {
     public country!: string;
 
     @Field(() => String)
-    public currncy!: string;
+    public currency!: string;
 
     @Field(() => Number)
     public amount!: number;
 
-    @Field(() => String)
+     @Field(() => String)
     public code!: string;
+   @Field(() => Number)
+    public rate!: number;
 }
