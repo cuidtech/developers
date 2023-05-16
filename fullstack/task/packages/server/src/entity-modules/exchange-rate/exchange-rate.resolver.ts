@@ -1,6 +1,5 @@
 import { ExchangeRateResult } from 'src/entities/exchange-rate-result.model';
 import { Query, Args, Int, Resolver } from '@nestjs/graphql';
-import { ExchangeRate } from '@cuid/entities';
 import { ExchangeRateService } from './exchange-rate.service';
 
 @Resolver()

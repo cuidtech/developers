@@ -2,14 +2,14 @@ import { Injectable } from '@nestjs/common';
 import { ExchangeRate } from '@cuid/entities';
 import { parseStringPromise } from 'xml2js';
 import fetch from 'node-fetch';
+import { ExchangeRateResult } from 'src/entities/exchange-rate-result.model';
 
 // This is the official API from CNB (Czech National Bank), the only problem is that is in XML format and in czech language
 // There was anothers alternatives but they are not official and they are not updated so I preffered to use this one
-// I create a parser to convert the XML to JSON and then I can use it
 const apiURL =
     'https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.xml';
 
-// Parser to convert the XML to JSON and then I can use it
+// Parser to convert the XML to JSON
 async function parseExchangeRatesFromXml(xmlData: string): Promise<ExchangeRate[]> {
     const jsonData = await parseStringPromise(xmlData, {
         explicitArray: false, // Ensure objects are not wrapped in arrays
@@ -35,10 +35,7 @@ async function parseExchangeRatesFromXml(xmlData: string): Promise<ExchangeRate[
 }
 @Injectable()
 export class ExchangeRateService {
-    async getExchangeRates(
-        page: number,
-        limit: number
-    ): Promise<{ exchangeRates: ExchangeRate[]; totalCount: number }> {
+    async getExchangeRates(page: number, limit: number): Promise<ExchangeRateResult> {
         // TODO: Implement the fetching and parsing of the exchange rates.
         // Use this method in the resolver.
         const response = await fetch(apiURL);
