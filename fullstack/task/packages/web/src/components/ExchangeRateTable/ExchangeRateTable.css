@@ -1,0 +1,54 @@
+.exchange-rate-table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-item {
+    margin-right: 5px;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.pagination-item.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.error-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.error-message {
+    margin-top: 10px;
+    color: #777;
+    font-size: 14px;
+    text-align: center;
+}

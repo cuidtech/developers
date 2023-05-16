@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Custom styles for h1 */
+h1 {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    height: 100vh;
+    max-width: 1260px;
+    margin: 0 auto;
+}
