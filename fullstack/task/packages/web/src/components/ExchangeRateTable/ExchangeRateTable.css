@@ -19,25 +19,6 @@ th {
     background-color: #f2f2f2;
 }
 
-.pagination {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.pagination-item {
-    margin-right: 5px;
-    padding: 6px 10px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    cursor: pointer;
-}
-
-.pagination-item.active {
-    background-color: #007bff;
-    color: #fff;
-}
-
 .error-message {
     display: flex;
     flex-direction: column;

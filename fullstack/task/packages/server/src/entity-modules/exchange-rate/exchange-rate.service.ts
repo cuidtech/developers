@@ -35,13 +35,21 @@ async function parseExchangeRatesFromXml(xmlData: string): Promise<ExchangeRate[
 }
 @Injectable()
 export class ExchangeRateService {
-    async getExchangeRates(): Promise<ExchangeRate[]> {
+    async getExchangeRates(
+        page: number,
+        limit: number
+    ): Promise<{ exchangeRates: ExchangeRate[]; totalCount: number }> {
         // TODO: Implement the fetching and parsing of the exchange rates.
         // Use this method in the resolver.
         const response = await fetch(apiURL);
         const xmlData = await response.text();
-        const exchangeRates = await parseExchangeRatesFromXml(xmlData);
+        const allExchangeRates = await parseExchangeRatesFromXml(xmlData);
 
-        return exchangeRates;
+        const startIndex = (page - 1) * limit;
+        const endIndex = page * limit;
+        const exchangeRates = allExchangeRates.slice(startIndex, endIndex);
+        const totalCount = allExchangeRates.length;
+
+        return { exchangeRates, totalCount };
     }
 }

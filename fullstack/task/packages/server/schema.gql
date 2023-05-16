@@ -10,6 +10,11 @@ type ExchangeRate {
   rate: String!
 }
 
-type Query {
+type ExchangeRateResult {
   exchangeRates: [ExchangeRate!]!
+  totalCount: Int!
+}
+
+type Query {
+  exchangeRates(page: Int = 1, limit: Int = 10): ExchangeRateResult!
 }

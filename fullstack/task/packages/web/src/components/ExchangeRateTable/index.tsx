@@ -5,11 +5,15 @@ import './ExchangeRateTable.css';
 import { ExchangeRate } from '../../types/exchangeRate';
 import { GET_EXCHANGE_RATES } from '../../graphql/queries';
 import Spinner from '../Spinner';
+import Pagination from '../Pagination';
 
 const ExchangeRateTable: React.FC = () => {
-    const { loading, error, data } = useQuery(GET_EXCHANGE_RATES);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
+
+    const { loading, error, data, fetchMore } = useQuery(GET_EXCHANGE_RATES, {
+        variables: { page: currentPage, limit: itemsPerPage },
+    });
 
     if (loading) {
         return <Spinner>Loading...</Spinner>;
@@ -20,14 +24,14 @@ const ExchangeRateTable: React.FC = () => {
     }
 
     // Pagination
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = data.exchangeRates.slice(indexOfFirstItem, indexOfLastItem);
+    const currentItems = data.exchangeRates.exchangeRates;
+    const totalPages = Math.ceil(data.exchangeRates.totalCount / itemsPerPage);
 
-    const totalPages = Math.ceil(data.exchangeRates.length / itemsPerPage);
-
-    const handlePaginationClick = (page: number) => {
+    const handlePageChange = (page: number) => {
         setCurrentPage(page);
+        fetchMore({
+            variables: { page, limit: itemsPerPage },
+        });
     };
 
     return (
@@ -57,21 +61,11 @@ const ExchangeRateTable: React.FC = () => {
                 </tbody>
             </table>
 
-            <div className="pagination">
-                {React.Children.toArray(
-                    Array.from({ length: totalPages }).map((_, index) => (
-                        <button
-                            className={`pagination-item ${
-                                currentPage === index + 1 ? 'active' : ''
-                            }`}
-                            onClick={() => handlePaginationClick(index + 1)}
-                            type="button"
-                        >
-                            {index + 1}
-                        </button>
-                    ))
-                )}
-            </div>
+            <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+            />
         </div>
     );
 };
