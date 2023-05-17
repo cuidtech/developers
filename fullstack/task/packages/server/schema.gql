@@ -7,9 +7,9 @@ type ExchangeRate {
   currency: String!
   amount: Float!
   code: String!
-  rate: String!
+  rate: Float!
 }
 
 type Query {
-  exchangeRates: [ExchangeRate!]!
+  exchangeRates(date: String!): [ExchangeRate!]!
 }

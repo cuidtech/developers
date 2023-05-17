@@ -13,6 +13,7 @@
     },
     "devDependencies": {
         "@types/node": "18.8.0",
+        "@types/react-datepicker": "^4.11.2",
         "@typescript-eslint/eslint-plugin": "5.39.0",
         "@typescript-eslint/parser": "5.39.0",
         "eslint": "8.24.0",
@@ -36,6 +37,8 @@
         "@mui/styled-engine": "^5.12.3",
         "@mui/styles": "^5.13.1",
         "axios": "^1.4.0",
+        "moment": "^2.29.4",
+        "react-datepicker": "^4.11.0",
         "react-table": "^7.8.0"
     }
 }
