@@ -2,7 +2,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Custom styles for h1 */
 h1 {
     color: #333;
     font-size: 24px;
@@ -14,7 +13,7 @@ h1 {
 .container {
     display: flex;
     flex-direction: column;
-    padding-top: 2rem;
+    padding-top: 32px;
     height: 100vh;
     max-width: 1260px;
     margin: 0 auto;

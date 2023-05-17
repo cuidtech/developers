@@ -16,3 +16,7 @@
     background-color: #007bff;
     color: #fff;
 }
+
+.pagination-item:disabled {
+    cursor: not-allowed;
+}
