@@ -1,14 +1,45 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, ForbiddenException } from '@nestjs/common';
 import { ExchangeRate } from '@cuid/entities';
+import { HttpService } from '@nestjs/axios';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class ExchangeRateService {
-    public getExchangeRates = async () => {
-        const rates: ExchangeRate[] = [];
+    constructor(private http: HttpService) {}
 
-        // TODO: Implement the fetching and parsing of the exchange rates.
-        // Use this method in the resolver.
+    public getExchangeRates = async (
+        date: string,
+        limit: number,
+        offset: number
+    ): Promise<ExchangeRate[]> => {
+        const response = await this.http
+            .get('https://api.cnb.cz/cnbapi/exrates/daily', {
+                params: {
+                    date,
+                    lang: 'EN',
+                },
+            })
+            .pipe(
+                map((response) => {
+                    const rates = response.data.rates;
+                    return rates.map((rate) => {
+                        return {
+                            country: rate.country,
+                            currency: rate.currency,
+                            amount: rate.amount,
+                            code: rate.currencyCode,
+                            date: rate.validFor,
+                            rate: rate.rate,
+                            order: rate.order,
+                        } as ExchangeRate;
+                    });
+                }),
+                catchError((err) => {
+                    throw new ForbiddenException(err);
+                })
+            )
+            .toPromise();
 
-        return rates;
+        return response.slice(offset, offset + limit);
     };
 }
