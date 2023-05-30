@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import { Query, Resolver } from '@nestjs/graphql';
 import { ExchangeRate } from '@cuid/entities';
 import { ExchangeRateService } from './exchange-rate.service';
@@ -7,8 +8,8 @@ export class ExchangeRateResolver {
     constructor(private readonly exchangeRateService: ExchangeRateService) {}
 
     // TODO: Implement a GraphQL Query that returns the exchange rates
-    @Query(() => String)
-    async exchangeRates(): Promise<String> {
-        return 'Hello';
+    @Query(() => [ExchangeRate])
+    async exchangeRates(): Promise<ExchangeRate[]> {
+        return this.exchangeRateService.getExchangeRates();
     }
 }
