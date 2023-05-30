@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Layout, Menu, theme } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { navElements } from './navElements';
 import './index.css';
 
@@ -15,10 +15,27 @@ function Main({ children }: IProps) {
         token: { colorBgContainer },
     } = theme.useToken();
 
+    const location = useLocation();
+
+    const [selectedKey, setSelectedKey] = useState(
+        navElements.find((navElement) => navElement.link === location.pathname)?.key || ''
+    );
+
+    useEffect(() => {
+        setSelectedKey(
+            navElements.find((navElement) => navElement.link === location.pathname)?.key || ''
+        );
+    }, [location]);
+
     return (
         <Layout className="layout">
             <Sider breakpoint="lg" collapsedWidth="0">
-                <Menu theme="dark" mode="inline" className="layout__sidemenu">
+                <Menu
+                    theme="dark"
+                    mode="inline"
+                    className="layout__sidemenu"
+                    selectedKeys={[selectedKey]}
+                >
                     {navElements.map((navElement) => (
                         <Menu.Item key={navElement.key} icon={navElement.icon()}>
                             <Link to={navElement.link}>{navElement.label}</Link>
