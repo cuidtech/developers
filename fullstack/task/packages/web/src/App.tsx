@@ -1,10 +1,16 @@
-function App() {
-    // TODO: Add the FE for exchange rates here.
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home/index';
+import ExchangeRate from './pages/ExchangeRate/index';
+import MainLayout from './layouts/Main/index';
 
+function App() {
     return (
-        <div>
-            <p>Add the exchange rates here</p>
-        </div>
+        <MainLayout>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="exchange-rates" element={<ExchangeRate />} />
+            </Routes>
+        </MainLayout>
     );
 }
 

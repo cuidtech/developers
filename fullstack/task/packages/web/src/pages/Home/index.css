@@ -1,0 +1,31 @@
+.carousel-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+.carousel-content p{
+    font-size: large;
+    font-weight: 300;
+}
+
+.button-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.image-wrapper{
+    width: auto;
+    text-align: center;
+}
+
+.image-wrapper img{
+    width: 45%;
+    height: auto;
+}

@@ -1,0 +1,17 @@
+.spinner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+}
+
+.table__wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    padding: 1rem;
+}
+.table{
+    width: 90%;
+}
