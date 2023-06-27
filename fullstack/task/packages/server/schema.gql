@@ -2,6 +2,24 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Query {
-  exchangeRates: String!
+type ExchangeRate {
+  country: String!
+  currency: String!
+  amount: Float!
+  code: String!
+  rate: Float!
 }
+
+type Query {
+  exchangeRates(
+    """
+    This should be a StringDate following this format: YYYY-MM-DD. Please note that months are 2 digits long
+    """
+    date: DateTime
+  ): [ExchangeRate!]!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
