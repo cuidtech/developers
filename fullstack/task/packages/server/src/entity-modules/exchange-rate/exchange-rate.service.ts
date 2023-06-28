@@ -19,12 +19,11 @@ export class ExchangeRateService {
     public getExchangeRates = async (args?: ExchangeRateArgs): Promise<ExchangeRate[]> => {
         let results: ExchangeRate[] = [];
 
-        // TODO: Implement the fetching and parsing of the exchange rates.
-        // Use this method in the resolver.
-
         try {
+            // set date for fetching the page (optional)
             const date = args && args.date ? args.date : new Date()
             const formattedToday = `${date.getDate()}.${this.formatMonth(date.getMonth())}.${date.getFullYear()}`
+            // step 1: fetch the data
             const { data } = await firstValueFrom(
                 this.httpService.get<string>(`${this.baseUrl}?date=${formattedToday}`).pipe(
                     catchError((error: AxiosError) => {
@@ -33,6 +32,7 @@ export class ExchangeRateService {
                     }),
                 ),
             );
+            // grab only the table that displays our data of interest
             const tableStartIndex = data.indexOf('<table class="currency-table">')
             const closingTag = '</table>'
             const tableEndIndex = data.indexOf(closingTag, tableStartIndex)
@@ -40,12 +40,13 @@ export class ExchangeRateService {
             results = htmlTableToJson<ExchangeRate>(tableElementString, new ExchangeRate())
             return results
         }
-
+        // error handling
         catch(err) {
             throw new InternalServerErrorException(err)
         }
     };
 
+    // simple helper for formatting date the way the external URL expects it
     private formatMonth = (month: number): string => {
         const offsetMonth = month + 1
         return offsetMonth >= 10 ? `${offsetMonth}` : `0${offsetMonth}`
