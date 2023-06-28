@@ -9,5 +9,5 @@ export class ExchangeRateArgs {
         nullable: true,
         description: 'This should be a StringDate following this format: YYYY-MM-DD. Please note that months are 2 digits long' 
     })
-    date: Date
+    date?: Date
 }
