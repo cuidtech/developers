@@ -9,9 +9,10 @@ export default function ExchangeRatePage() {
     const [error, setError] = useState<ApolloError | undefined>(undefined)
     const [exchangeRates, setExchangeRates] = useState<ExchangeRate[]>([])
 
+    // date can be provided for the exchangeRates query args. In the following format: "YYYY-MM-DD". e.g: "2023-06-27"
     const GET_EXCHANGE_RATES = gql`
         query GetLocations {
-            exchangeRates(date: "2023-06-28") {
+            exchangeRates(date: null) { 
                 country
                 currency
                 amount
