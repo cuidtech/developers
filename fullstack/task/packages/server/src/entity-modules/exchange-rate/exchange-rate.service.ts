@@ -21,6 +21,7 @@ export class ExchangeRateService {
                 amount: cnbRate.amount,
                 code: cnbRate.currencyCode,
                 country: cnbRate.country,
+                rate: cnbRate.rate
             } as ExchangeRate;
         });
         return exchangeRate;
