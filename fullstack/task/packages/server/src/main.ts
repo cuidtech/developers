@@ -10,5 +10,6 @@ async function bootstrap() {
 
     const host = '0.0.0.0';
     await app.listen(port, host);
+    console.log(`App is listenning in ${host}:${port}`);
 }
 bootstrap();
