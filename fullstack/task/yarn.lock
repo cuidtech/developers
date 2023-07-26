@@ -859,6 +859,7 @@ __metadata:
     ts-jest: 28.0.8
     typeorm: 0.3.10
     typescript: 4.8.2
+    xml2js: ^0.6.1
   languageName: unknown
   linkType: soft
 
@@ -9458,6 +9459,16 @@ __metadata:
     sax: ">=0.6.0"
     xmlbuilder: ~11.0.0
   checksum: ca0cf2dfbf6deeaae878a891c8fbc0db6fd04398087084edf143cdc83d0509ad0fe199b890f62f39c4415cf60268a27a6aed0d343f0658f8779bd7add690fa98
+  languageName: node
+  linkType: hard
+
+"xml2js@npm:^0.6.1":
+  version: 0.6.1
+  resolution: "xml2js@npm:0.6.1"
+  dependencies:
+    sax: ">=0.6.0"
+    xmlbuilder: ~11.0.0
+  checksum: 7165e0f5f732e95d8085039dd7b584414cd108f29088e206d3d3f0558524e862d0e9190e971469d49fe0154d88d90f7b0385ff41199048d6bfd0f2d5050544e5
   languageName: node
   linkType: hard
 
