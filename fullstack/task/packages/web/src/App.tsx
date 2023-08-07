@@ -4,7 +4,7 @@ type Rate = {
     country: string;
     currency: string;
     amount: number;
-    code: string;
+    currencyCode: string;
     rate: number;
 };
 
@@ -15,14 +15,19 @@ function App() {
                 country
                 currency
                 amount
-                code
+                currencyCode
                 rate
             }
         }
     `);
 
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error : {error.message}</p>;
+    if (error)
+        return (
+            <p>
+                Error : {error.message} {JSON.stringify(error, null, 2)}
+            </p>
+        );
 
     return (
         <div>
@@ -38,11 +43,11 @@ function App() {
                 </thead>
                 <tbody>
                     {data.exchangeRates.map((exchangeRate: Rate) => (
-                        <tr key={exchangeRate.code}>
+                        <tr key={exchangeRate.currencyCode}>
                             <td>{exchangeRate.country}</td>
                             <td>{exchangeRate.currency}</td>
                             <td>{exchangeRate.amount}</td>
-                            <td>{exchangeRate.code}</td>
+                            <td>{exchangeRate.currencyCode}</td>
                             <td>{exchangeRate.rate} CZK</td>
                         </tr>
                     ))}

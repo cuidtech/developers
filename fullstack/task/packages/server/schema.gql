@@ -3,10 +3,12 @@
 # ------------------------------------------------------
 
 type ExchangeRate {
+  validFor: String
+  order: Float
   country: String!
   currency: String!
   amount: Float!
-  code: String!
+  currencyCode: String!
   rate: Float!
 }
 

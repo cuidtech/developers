@@ -9,25 +9,9 @@ export class ExchangeRateService {
     private fetchRates = async () => {
         const { url } = cnbConfig;
 
-        const response = await fetch(url);
+        const response = await (await fetch(url)).json();
 
-        const ratesLines = (await response.text())
-            .split('\n')
-            .filter((line: string): boolean => !!line);
-
-        ratesLines.splice(0, 2);
-
-        return ratesLines.map((line: string): ExchangeRate => {
-            const values = line.split('|');
-
-            return {
-                country: `${values[0]}`,
-                currency: `${values[1]}`,
-                amount: +values[2] || 0, // 0 is questionable
-                code: `${values[3]}`,
-                rate: +values[4].replace(',', '.') || 0, // 0 is questionable
-            };
-        });
+        return response.rates as [ExchangeRate];
     };
 
     // eslint-disable-next-line class-methods-use-this

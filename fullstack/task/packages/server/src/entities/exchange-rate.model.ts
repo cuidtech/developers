@@ -2,6 +2,12 @@ import { Field, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class ExchangeRate {
+    @Field(() => String, { nullable: true })
+    public validFor?: string;
+
+    @Field(() => Number, { nullable: true })
+    public order?: number;
+
     @Field(() => String)
     public country!: string;
 
@@ -12,7 +18,7 @@ export class ExchangeRate {
     public amount!: number;
 
     @Field(() => String)
-    public code!: string;
+    public currencyCode!: string;
 
     @Field(() => Number)
     public rate!: number;
