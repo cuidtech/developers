@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
-import { modules } from '@cuid/entity-modules';
+import { modules } from './entity-modules';
 import { graphqlConfig } from './config';
 
 @Module({
