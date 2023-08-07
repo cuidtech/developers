@@ -1,0 +1,7 @@
+@import './components/loader/Loader.style.css';
+
+body {
+    background-color:whitesmoke;
+    display: grid;
+    place-content: center;
+}
