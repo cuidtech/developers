@@ -11,12 +11,12 @@ export class ExchangeRateService {
 
         const response = await (await fetch(url)).json();
 
-        return response.rates as [ExchangeRate];
+        return response.rates as ExchangeRate[];
     };
 
     // eslint-disable-next-line class-methods-use-this
     public async getExchangeRates(): Promise<ExchangeRate[]> {
-        const rates: [ExchangeRate] = await this.fetchRates();
+        const rates: ExchangeRate[] = await this.fetchRates();
         return rates;
     }
 }
