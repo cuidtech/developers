@@ -22,6 +22,7 @@ function App() {
                     <tr>
                         <th>Country</th>
                         <th>Amount</th>
+                        <th>Rate</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,7 @@ function App() {
                         <tr key={exchangeRate.country}>
                             <td>{exchangeRate.country}</td>
                             <td>{exchangeRate.amount}</td>
+                            <td>{exchangeRate.rate}</td>
                         </tr>
                     ))}
                 </tbody>

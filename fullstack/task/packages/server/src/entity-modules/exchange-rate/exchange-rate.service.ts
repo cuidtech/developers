@@ -2,21 +2,23 @@ import { Injectable } from '@nestjs/common';
 import { ExchangeRate } from '@cuid/entities';
 import { ConfigService } from '@nestjs/config';
 import { HttpService } from '@nestjs/axios';
+import { CNBRates } from './types';
 
 @Injectable()
 export class ExchangeRateService {
     constructor(private configService: ConfigService, private readonly httpService: HttpService) {}
 
-    public getExchangeRates = async () => {
+    public getExchangeRates = async (): Promise<ExchangeRate[]> => {
         const cnbEndpoint = this.configService.get('CNB_URL');
-        console.log('!!! service', cnbEndpoint);
-        const rates: ExchangeRate[] = [
-            { country: 'test-country', currency: 'czk', amount: 4444, code: 'CODE', rate: 111.2 },
-        ];
+        const response = await this.httpService.axiosRef.get<CNBRates>(cnbEndpoint);
+        const ratesForGQL = response.data?.rates.map((rate) => ({
+            country: rate.country,
+            currency: rate.currency,
+            amount: rate.amount,
+            rate: rate.rate,
+            code: rate.currencyCode,
+        }));
 
-        // TODO: Implement the fetching and parsing of the exchange rates.
-        // Use this method in the resolver.
-
-        return Promise.resolve(rates);
+        return ratesForGQL;
     };
 }
