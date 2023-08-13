@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { ExchangeRate } from '@cuid/entities';
 import { ConfigService } from '@nestjs/config';
 import { HttpService } from '@nestjs/axios';
+import { catchError, firstValueFrom } from 'rxjs';
+
 import { CNBRates } from './types';
 
 @Injectable()
@@ -10,8 +12,8 @@ export class ExchangeRateService {
 
     public getExchangeRates = async (): Promise<ExchangeRate[]> => {
         const cnbEndpoint = this.configService.get('CNB_URL');
-        const response = await this.httpService.axiosRef.get<CNBRates>(cnbEndpoint);
-        const ratesForGQL = response.data?.rates.map((rate) => ({
+        const ratesResponse = await firstValueFrom(this.httpService.get<CNBRates>(cnbEndpoint));
+        const ratesForGQL = ratesResponse.data.rates.map((rate) => ({
             country: rate.country,
             currency: rate.currency,
             amount: rate.amount,
