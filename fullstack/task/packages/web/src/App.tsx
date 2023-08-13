@@ -1,10 +1,13 @@
-function App() {
-    // TODO: Add the FE for exchange rates here.
+import { Box } from '@mui/material';
+import { ExchangeRates } from './modules';
 
+function App() {
     return (
-        <div>
-            <p>Add the exchange rates here</p>
-        </div>
+        <Box>
+            <Box mx="auto" my={5} minWidth={280} maxWidth={600}>
+                <ExchangeRates />
+            </Box>
+        </Box>
     );
 }
 

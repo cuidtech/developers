@@ -11,15 +11,25 @@
         "codecheck": "yarn typescript && yarn prettier && yarn lint",
         "start": "vite",
         "build": "tsc && vite build",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "codegen": "graphql-codegen --config codegen.yaml"
     },
     "dependencies": {
-        "@apollo/client": "^3.7.1",
-        "graphql": "^16.6.0",
+        "@apollo/client": "3.7.1",
+        "@emotion/react": "^11.11.1",
+        "@emotion/styled": "^11.11.0",
+        "@mui/material": "^5.14.4",
+        "graphql": "16.6.0",
         "react": "18.2.0",
-        "react-dom": "18.2.0"
+        "react-dom": "18.2.0",
+        "react-i18next": "^13.1.2"
     },
     "devDependencies": {
+        "@graphql-codegen/cli": "5.0.0",
+        "@graphql-codegen/client-preset": "4.1.0",
+        "@graphql-codegen/introspection": "4.0.0",
+        "@graphql-codegen/typescript-operations": "^4.0.1",
+        "@graphql-codegen/typescript-react-apollo": "^3.3.7",
         "@types/react": "18.0.17",
         "@types/react-dom": "18.0.6",
         "@vitejs/plugin-react": "2.1.0",
