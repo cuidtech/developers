@@ -1,3 +1,4 @@
+import 'package:app/exchange_rate/model/exchange_rate.dart';
 import 'package:app/page.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -23,6 +24,11 @@ class ExchangeRatesPage extends StatelessWidget {
             if (result.isLoading) {
               return const Text('Loading');
             }
+
+            List<ExchangeRate> exchangeRates =
+                (result.data?['exchangeRates'] as List)
+                    .map((rate) => ExchangeRate.fromJson(rate))
+                    .toList();
 
             return Container();
           },
