@@ -18,7 +18,7 @@ class ExchangeRate {
 
   factory ExchangeRate.fromJson(Map<String, dynamic> json) {
     final List<double> rates = (json['rates'] as List).map((rate) {
-      return rate as double;
+      return (rate * 1.0) as double;
     }).toList();
     return ExchangeRate(
         code: json['code'], description: json['description'], rates: rates);
