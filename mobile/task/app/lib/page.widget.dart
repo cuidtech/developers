@@ -20,7 +20,7 @@ class PageWidget extends StatelessWidget {
       body: LayoutBuilder(builder: (context, box) {
         return SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(5),
+            padding: const EdgeInsets.all(10),
             child: Center(child: child),
           ),
         );
