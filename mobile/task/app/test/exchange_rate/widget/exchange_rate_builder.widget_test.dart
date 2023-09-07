@@ -1,8 +1,6 @@
 import 'package:app/exchange_rate/model/exchange_rate.dart';
-import 'package:app/exchange_rate/widget/exchange_rate_detail.widget.dart';
 import 'package:app/exchange_rate/widget/exchange_rate_tile.widget.dart';
 import 'package:app/exchange_rate/widget/exchange_rates_builder.widget.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
