@@ -18,12 +18,12 @@ class ExchangeRateTile extends StatelessWidget {
       child: ListTile(
         title: Text(rate.code),
         trailing: SizedBox(
-            width: 150,
+            width: 160,
             child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('${rate.lastRate}'),
+                Expanded(child: Text('${rate.lastRate}')),
                 rate.lastDelta > 0
                     ? const Icon(
                         Icons.arrow_upward,

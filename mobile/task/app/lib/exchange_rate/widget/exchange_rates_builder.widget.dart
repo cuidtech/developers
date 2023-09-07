@@ -11,6 +11,7 @@ class ExchangeRatesBuilderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
         shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: exchangeRates.length,
         itemBuilder: (context, index) {
           final rate = exchangeRates.elementAt(index);

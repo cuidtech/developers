@@ -15,7 +15,7 @@ class ExchangeRateDetailWidget extends StatelessWidget {
         Text(rate.description),
         Container(
           margin: const EdgeInsets.only(top: 20),
-          height: 250,
+          height: 200,
           child: LineChart(LineChartData(
               minX: 0,
               maxX: rate.rates.length * 1.0,

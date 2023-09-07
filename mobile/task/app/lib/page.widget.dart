@@ -18,9 +18,11 @@ class PageWidget extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: LayoutBuilder(builder: (context, box) {
-        return Padding(
-          padding: const EdgeInsets.all(10),
-          child: Center(child: child),
+        return SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(5),
+            child: Center(child: child),
+          ),
         );
       }),
     );
