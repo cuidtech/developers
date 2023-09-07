@@ -18,7 +18,10 @@ class PageWidget extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: LayoutBuilder(builder: (context, box) {
-        return Center(child: child);
+        return Padding(
+          padding: const EdgeInsets.all(10),
+          child: Center(child: child),
+        );
       }),
     );
   }
