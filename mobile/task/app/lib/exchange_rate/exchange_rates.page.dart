@@ -1,4 +1,5 @@
 import 'package:app/exchange_rate/model/exchange_rate.dart';
+import 'package:app/exchange_rate/widget/exchange_rates_builder.widget.dart';
 import 'package:app/page.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -30,7 +31,7 @@ class ExchangeRatesPage extends StatelessWidget {
                     .map((rate) => ExchangeRate.fromJson(rate))
                     .toList();
 
-            return Container();
+            return ExchangeRatesBuilderWidget(exchangeRates: exchangeRates);
           },
         ));
   }
