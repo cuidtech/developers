@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   graphql_flutter: ^5.1.2
+  fl_chart: ^0.63.0
   flutter_dotenv: ^5.1.0
   flutter:
     sdk: flutter
