@@ -38,7 +38,16 @@ class DetailsScreen extends StatelessWidget {
 
               debugPrint(result.data.toString());
               final currency = result.data?['exchangeRate'];
-              return Text(currency['description'] ?? 'no description');
+              return Column(
+                children: [
+                  const SizedBox(
+                    height: 200,
+                    child: Placeholder(),
+                  ),
+                  const SizedBox(height: 32),
+                  Text(currency['description'] ?? 'no description'),
+                ],
+              );
             }),
       ),
     );
