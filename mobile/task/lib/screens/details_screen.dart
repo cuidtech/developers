@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({super.key});
+  final String currencyCode;
+  const DetailsScreen({super.key, required this.currencyCode});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Details Screen'),
+        title: Text(currencyCode),
       ),
       body: Center(
         child: Query(

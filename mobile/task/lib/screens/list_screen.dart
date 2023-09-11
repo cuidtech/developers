@@ -31,7 +31,7 @@ query {
             }
 
             if (result.isLoading) {
-              return const CircularProgressIndicator();
+              return const Center(child: CircularProgressIndicator());
             }
 
             // debugPrint(result.data.toString());
@@ -42,7 +42,7 @@ query {
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DetailsScreen(),
+                        builder: (context) => DetailsScreen(currencyCode: currency['code']),
                       ),
                     ),
                     child: ListTile(
