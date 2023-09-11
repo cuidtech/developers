@@ -11,18 +11,19 @@ class DetailsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(currencyCode),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16),
         child: Query(
             options: QueryOptions(
               document: gql(
                 '''
-      query {
-        exchangeRates(historyLength: 2) {
-          code
+        query {
+        exchangeRate(code: "$currencyCode") {
+          description,
           rates
         }
-      }
-      
+        }
+        
                   ''',
               ),
             ),
@@ -32,11 +33,12 @@ class DetailsScreen extends StatelessWidget {
               }
 
               if (result.isLoading) {
-                return const CircularProgressIndicator();
+                return const Center(child: CircularProgressIndicator());
               }
 
-              // debugPrint(result.data.toString());
-              return Text('Details Screen');
+              debugPrint(result.data.toString());
+              final currency = result.data?['exchangeRate'];
+              return Text(currency['description'] ?? 'no description');
             }),
       ),
     );
