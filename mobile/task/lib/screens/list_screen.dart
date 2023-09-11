@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:task/screens/details_screen.dart';
 
 class ListScreen extends StatelessWidget {
   const ListScreen({super.key});
@@ -37,12 +38,20 @@ query {
             return ListView(
               children: [
                 for (final currency in result.data!['exchangeRates'])
-                  ListTile(
-                      title: Text(currency['code']),
-                      subtitle: Text(currency['rates'].first.toStringAsFixed(2)),
-                      trailing: currency['rates'].first > currency['rates'].last
-                          ? const Icon(Icons.arrow_upward, color: Colors.green)
-                          : const Icon(Icons.arrow_downward, color: Colors.red)),
+                  GestureDetector(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailsScreen(),
+                      ),
+                    ),
+                    child: ListTile(
+                        title: Text(currency['code']),
+                        subtitle: Text(currency['rates'].first.toStringAsFixed(2)),
+                        trailing: currency['rates'].first > currency['rates'].last
+                            ? const Icon(Icons.arrow_upward, color: Colors.green)
+                            : const Icon(Icons.arrow_downward, color: Colors.red)),
+                  ),
               ],
             );
           }),
