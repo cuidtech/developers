@@ -37,17 +37,16 @@ class DetailsScreen extends StatelessWidget {
 
             debugPrint(result.data.toString());
             final currency = result.data?['exchangeRate'];
+            final rates = currency['rates'] as List;
             return Column(
               children: [
                 SizedBox(
                   height: 250,
                   child: LineChart(
                     LineChartData(lineBarsData: [
-                      LineChartBarData(spots: [
-                        FlSpot(0, 1),
-                        FlSpot(1, 2),
-                        FlSpot(2, 3),
-                      ])
+                      LineChartBarData(
+                        spots: rates.asMap().entries.map((e) => FlSpot(double.parse(e.key.toString()), e.value)).toList(),
+                      )
                     ]),
                   ),
                 ),
