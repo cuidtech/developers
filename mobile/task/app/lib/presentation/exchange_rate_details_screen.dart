@@ -54,8 +54,6 @@ class ExchangeRateDetails extends ConsumerWidget {
                     gridData: const FlGridData(show: true),
                     titlesData: const FlTitlesData(
                       show: false,
-                      rightTitles: AxisTitles(),
-                      topTitles: AxisTitles(),
                     ),
                     borderData: FlBorderData(
                       show: false,
