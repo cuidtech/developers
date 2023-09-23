@@ -1,11 +1,32 @@
+# dependencies
+/.yarn
+
+# production
+/build
+/dist
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+/.idea
+/.vscode
+
+npm-debug.log*
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+analyze-result.html
 
-/node_modules
+# tscheck
+tsconfig.tsbuildinfo
+
 
 # Swap the comments on the following lines if you wish to use zero-installs
 # Documentation here: https://yarnpkg.com/features/zero-installs
