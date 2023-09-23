@@ -15,11 +15,16 @@
     },
     "dependencies": {
         "@apollo/client": "^3.7.1",
+        "@mui/icons-material": "^5.14.9",
+        "@mui/material": "^5.14.10",
         "graphql": "^16.6.0",
         "react": "18.2.0",
         "react-dom": "18.2.0"
     },
     "devDependencies": {
+        "@graphql-codegen/cli": "^5.0.0",
+        "@graphql-codegen/typescript-operations": "^4.0.1",
+        "@graphql-codegen/typescript-react-apollo": "^3.3.7",
         "@types/react": "18.0.17",
         "@types/react-dom": "18.0.6",
         "@vitejs/plugin-react": "2.1.0",
