@@ -23,6 +23,7 @@ const Styled = {
     Title: styled('div')({
         fontSize: '1.4rem',
         fontFamily: 'roboto',
+        marginBottom: '0.8rem',
     }),
 };
 
