@@ -1,12 +1,24 @@
+import { styled, TableCell } from '@mui/material';
 import { ExchangeRatesList } from './exchangeRates/ExchangeRatesList';
 
-function App() {
-    // TODO: Add the FE for exchange rates here.
+const Styled = {
+    Wrapper: styled('div')({
+        display: 'flex',
+        padding: '2rem',
+        flexDirection: 'column',
+    }),
+    Headline: styled('div')({
+        fontSize: '2rem',
+        fontFamily: 'Roboto',
+    }),
+};
 
+function App() {
     return (
-        <div>
+        <Styled.Wrapper>
+            <Styled.Headline>Matouš Najman - CUID interview</Styled.Headline>
             <ExchangeRatesList />
-        </div>
+        </Styled.Wrapper>
     );
 }
 

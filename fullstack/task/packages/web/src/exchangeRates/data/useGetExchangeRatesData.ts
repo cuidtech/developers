@@ -10,12 +10,10 @@ export type ResultType = {
 export const useGetExchangeRatesData = (): ResultType => {
     const { loading, error, data } = useGetExchangeRatesQuery();
 
-    const exchangeRates = data?.exchangeRates || [];
-
-    const filteredExchangeRates = exchangeRates.filter((rate) => rate !== null) as ExchangeRate[];
+    const exchangeRates = data?.exchangeRates as ExchangeRate[] | undefined;
 
     return {
-        exchangeRates: filteredExchangeRates,
+        exchangeRates,
         loading,
         error,
     };

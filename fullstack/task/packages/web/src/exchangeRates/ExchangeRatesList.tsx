@@ -7,8 +7,24 @@ import {
     TableHead,
     TableRow,
     Paper,
+    styled,
 } from '@mui/material';
 import { useGetExchangeRatesData } from './data/useGetExchangeRatesData';
+
+const Styled = {
+    HeadCell: styled(TableCell)({
+        fontSize: '1.2rem',
+    }),
+    ListWrapper: styled('div')({
+        display: 'flex',
+        flexDirection: 'column',
+        margin: '1rem',
+    }),
+    Title: styled('div')({
+        fontSize: '1.4rem',
+        fontFamily: 'roboto',
+    }),
+};
 
 export function ExchangeRatesList() {
     const { exchangeRates, loading, error } = useGetExchangeRatesData();
@@ -22,29 +38,34 @@ export function ExchangeRatesList() {
     }
 
     return (
-        <TableContainer component={Paper}>
-            <Table aria-label="Exchange Rates Table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Country</TableCell>
-                        <TableCell>Currency</TableCell>
-                        <TableCell>Amount</TableCell>
-                        <TableCell>Code</TableCell>
-                        <TableCell>Rate</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {exchangeRates?.map((rate) => (
-                        <TableRow key={rate.country}>
-                            <TableCell>{rate.country}</TableCell>
-                            <TableCell>{rate.currency}</TableCell>
-                            <TableCell>{rate.amount}</TableCell>
-                            <TableCell>{rate.code}</TableCell>
-                            <TableCell>{rate.rate}</TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+        <Styled.ListWrapper>
+            <Styled.Title>Exchange Rates</Styled.Title>
+            <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+                <TableContainer sx={{ maxHeight: 800, maxWidth: '100%' }}>
+                    <Table stickyHeader aria-label="Exchange Rates Table">
+                        <TableHead>
+                            <TableRow>
+                                <Styled.HeadCell>Country</Styled.HeadCell>
+                                <Styled.HeadCell>Currency</Styled.HeadCell>
+                                <Styled.HeadCell>Amount</Styled.HeadCell>
+                                <Styled.HeadCell>Code</Styled.HeadCell>
+                                <Styled.HeadCell>Rate</Styled.HeadCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {exchangeRates?.map((rate) => (
+                                <TableRow key={rate.country}>
+                                    <TableCell>{rate.country}</TableCell>
+                                    <TableCell>{rate.currency}</TableCell>
+                                    <TableCell>{rate.amount}</TableCell>
+                                    <TableCell>{rate.code}</TableCell>
+                                    <TableCell>{rate.rate}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </Paper>
+        </Styled.ListWrapper>
     );
 }
