@@ -1,5 +1,5 @@
+import 'package:app/presentation/exchange_rate_details_screen.dart';
 import 'package:app/presentation/exchange_rates_screen.dart';
-import 'package:app/presentation/widgets/exchange_rates_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -17,6 +17,7 @@ class MainApp extends ConsumerWidget {
     return MaterialApp(
       routes: {
       '/': (context) => const ExchangeRatesScreen(),
+      '/details': (context) => const ExchangeRateDetails(),
       },
       initialRoute: "/",
     );

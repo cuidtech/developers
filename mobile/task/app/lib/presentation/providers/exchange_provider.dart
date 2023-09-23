@@ -20,4 +20,9 @@ final exchangeRatesProvider = FutureProvider<List<ExchangeRate>>((ref) async {
   return rates;
 });
 
-final selectedRateProvider = StateNotifierProvider.autoDispose<ExchangeRateNotifier, ExchangeRateState?>((ref) => ExchangeRateNotifier());
+final selectedRateProvider = StateNotifierProvider<ExchangeRateNotifier, ExchangeRateState>((ref){
+  // Get the ExchangeRepository instance from the provider
+  final exchangeRepository = ref.watch(exchangeRepositoryProvider);
+
+  return ExchangeRateNotifier(exchangeRepository);
+});

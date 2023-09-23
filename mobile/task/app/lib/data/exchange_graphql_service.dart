@@ -77,7 +77,6 @@ class ExchangeService {
     } catch (e) {
       return null;
     }
-    
     return null;
   }
 }
