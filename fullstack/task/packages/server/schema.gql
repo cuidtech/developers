@@ -2,6 +2,19 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type ExchangeRate {
+  country: String!
+  currncy: String!
+  amount: Float!
+  code: String!
+  rate: Float!
+}
+
+type ExchangeRates {
+  date: String!
+  rates: [ExchangeRate!]!
+}
+
 type Query {
-  exchangeRates: String!
+  exchangeRates: ExchangeRates!
 }

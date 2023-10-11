@@ -26,5 +26,6 @@ module.exports = {
         'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }],
         'react/react-in-jsx-scope': 'off',
         'no-shadow': 'off',
+        'react/no-unknown-property': ['error', { ignore: ['css'] }],
     },
 };
