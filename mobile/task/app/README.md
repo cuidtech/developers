@@ -1,16 +1,23 @@
-# app
+# currency_exchange
 
-A new Flutter project.
+A simple, currency exchage app that consumes the API from localhost:4000 GraphQL endpoint.
 
 ## Getting Started
+1. [Install the most recent version of Flutter](https://docs.flutter.dev/get-started/install), and make sure you also set up `ios` and `android` platforms.
+2. Install dependencies and generate the code:
+```bash
+flutter pub get
+```
+3. Run code generation.
+```bash
+dart run build_runner build
+```
+4. Start your emulator/simulator.
+5. Verify if you instalation is correct:
+```bash
+flutter doctor
+```
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## App Features
+1. Display a list of all available currencies
+2. Currency detail
