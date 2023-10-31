@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
 const screenWidth = 1170.0;
 const screenHeight = 2532.0;
 const defaultScreenSize = Size(screenWidth, screenHeight);
+
+class MockRoute extends Mock implements Route {}
+
+class MockNavigatorObserver extends Mock implements NavigatorObserver {}
 
 class ConsumerBuilderWrapper extends ConsumerWidget {
   const ConsumerBuilderWrapper(
@@ -48,6 +53,7 @@ Future<void> prepareAndSettle(
   Size screenSize = defaultScreenSize,
   bool isConsumer = false,
   List<Override> overrides = const [],
+  NavigatorObserver? navigatorObserver,
 }) async {
   await pumpWidget(
     tester,
@@ -55,6 +61,7 @@ Future<void> prepareAndSettle(
     isConsumer: isConsumer,
     overrides: overrides,
     widget: widget,
+    navigatorObserver: navigatorObserver,
   );
   await tester.pumpAndSettle();
 }
@@ -65,6 +72,7 @@ Future<void> pumpWidget(
   Size? screenSize = defaultScreenSize,
   bool isConsumer = false,
   List<Override> overrides = const [],
+  NavigatorObserver? navigatorObserver,
 }) async {
   if (screenSize != null) {
     setupScreenSize(tester, screenSize);
@@ -78,6 +86,8 @@ Future<void> pumpWidget(
           widget: widget,
         ),
       ),
+      navigatorObservers:
+          navigatorObserver != null ? [navigatorObserver] : const [],
     ),
   );
 }
