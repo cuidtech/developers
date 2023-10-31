@@ -20,38 +20,76 @@ void main() {
   });
 
   group('currencies service', () {
-    test('getCurrencies returns a list of CurrencyModel', () async {
-      final result = QueryResult<Object?>(
-        options: getCurrenciesQueryOptions,
-        source: QueryResultSource.network,
-        data: getCurrenciesResponse,
-      );
+    group('getCurrencies', () {
+      test('returns a list of CurrencyModel', () async {
+        final result = QueryResult<Object?>(
+          options: getCurrenciesQueryOptions,
+          source: QueryResultSource.network,
+          data: getCurrenciesResponse,
+        );
 
-      when(() => client.query(getCurrenciesQueryOptions))
-          .thenAnswer((_) async => result);
+        when(() => client.query(getCurrenciesQueryOptions))
+            .thenAnswer((_) async => result);
 
-      final currencies = await currenciesService.getCurrencies();
+        final currencies = await currenciesService.getCurrencies();
 
-      expect(currencies, isA<List<CurrencyModel>>());
-      expect(currencies.length, equals(6));
+        expect(currencies, isA<List<CurrencyModel>>());
+        expect(currencies.length, equals(6));
+      });
+
+      test('throws an exception', () {
+        final result = QueryResult<Object?>(
+          options: getCurrenciesQueryOptions,
+          source: QueryResultSource.network,
+          exception: OperationException(),
+          data: null,
+        );
+
+        when(() => client.query(getCurrenciesQueryOptions))
+            .thenAnswer((_) async => result);
+
+        expectLater(
+          currenciesService.getCurrencies(),
+          throwsA(isA<OperationException>()),
+        );
+      });
     });
 
-    test('getCurrencyDetail returns a DetailedCurrencyModel', () async {
-      final result = QueryResult<Object?>(
-        options: getCurrencyDetailQueryOptions(code),
-        source: QueryResultSource.network,
-        data: getCurrencyDetailResponse,
-      );
+    group('getCurrencyDetail', () {
+      test('returns a DetailedCurrencyModel', () async {
+        final result = QueryResult<Object?>(
+          options: getCurrencyDetailQueryOptions(code),
+          source: QueryResultSource.network,
+          data: getCurrencyDetailResponse,
+        );
 
-      when(() => client.query(getCurrencyDetailQueryOptions(code)))
-          .thenAnswer((_) async => result);
+        when(() => client.query(getCurrencyDetailQueryOptions(code)))
+            .thenAnswer((_) async => result);
 
-      final currency = await currenciesService.getCurrencyDetail(code);
+        final currency = await currenciesService.getCurrencyDetail(code);
 
-      expect(currency, isA<DetailedCurrencyModel>());
-      expect(currency.code, equals(code));
-      expect(currency.description, equals(description));
-      expect(currency.rates, equals(rates));
+        expect(currency, isA<DetailedCurrencyModel>());
+        expect(currency.code, equals(code));
+        expect(currency.description, equals(description));
+        expect(currency.rates, equals(rates));
+      });
+
+      test('throws an exception', () {
+        final result = QueryResult<Object?>(
+          options: getCurrencyDetailQueryOptions(code),
+          source: QueryResultSource.network,
+          exception: OperationException(),
+          data: null,
+        );
+
+        when(() => client.query(getCurrencyDetailQueryOptions(code)))
+            .thenAnswer((_) async => result);
+
+        expectLater(
+          currenciesService.getCurrencyDetail(code),
+          throwsA(isA<OperationException>()),
+        );
+      });
     });
   });
 }
