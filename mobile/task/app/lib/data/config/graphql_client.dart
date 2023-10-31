@@ -1,4 +1,4 @@
-import 'package:graphql/client.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'graphql_client.g.dart';

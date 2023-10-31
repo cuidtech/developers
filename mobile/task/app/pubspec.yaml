@@ -39,7 +39,8 @@ dependencies:
   riverpod_annotation: ^2.3.0
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
-  graphql: ^5.1.2
+  graphql_flutter: ^5.1.2
+  mocktail: ^1.0.1
 
 dev_dependencies:
   flutter_test:
