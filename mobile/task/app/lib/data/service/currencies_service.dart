@@ -57,7 +57,7 @@ class CurrenciesService {
 
     if (result.hasException) throw result.exception!;
 
-    return (result.data?['exchangeRates'] as List<Map<String, dynamic>>)
+    return List<Map<String, dynamic>>.from(result.data?['exchangeRates'])
         .map((e) => CurrencyModel.fromJson(e))
         .toList();
   }

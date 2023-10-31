@@ -12,10 +12,7 @@ class CurrencyExchange extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Currency Exchange',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      darkTheme: ThemeData.dark(useMaterial3: true),
       home: const HomeScreen(),
     );
   }
