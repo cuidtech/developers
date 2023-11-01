@@ -6,7 +6,7 @@ part 'currency.freezed.dart';
 class Currency with _$Currency {
   const factory Currency({
     required String code,
-    required double currentExchangeRate,
+    required String currentExchangeRate,
     required bool isAppreciating,
   }) = _Currency;
 }

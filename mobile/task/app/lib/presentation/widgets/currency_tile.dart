@@ -11,9 +11,6 @@ class CurrencyTile extends StatelessWidget {
 
   final Currency currency;
 
-  String get currentExchangeRate =>
-      currency.currentExchangeRate.toStringAsFixed(2);
-
   Icon get exchangeRateIcon => currency.isAppreciating
       ? const Icon(Icons.arrow_upward, color: Colors.green)
       : const Icon(Icons.arrow_downward, color: Colors.red);
@@ -29,7 +26,7 @@ class CurrencyTile extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            '\$$currentExchangeRate',
+            currency.currentExchangeRate,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           const SizedBox(width: 8),

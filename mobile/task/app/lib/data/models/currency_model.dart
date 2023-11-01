@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../core/utils.dart';
 import '../../domain/entities/currency.dart';
 
 part 'currency_model.freezed.dart';
@@ -21,7 +22,7 @@ class CurrencyModel with _$CurrencyModel {
   /// NOTE: This implementation considers the last rate as the current exchange rate.
   Currency toCurrency() => Currency(
         code: code,
-        currentExchangeRate: rates.last,
+        currentExchangeRate: rates.last.toMoneyString(),
         isAppreciating: rates.last > rates.first,
       );
 }
