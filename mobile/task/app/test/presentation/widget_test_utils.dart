@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -10,6 +11,30 @@ const defaultScreenSize = Size(screenWidth, screenHeight);
 class MockRoute extends Mock implements Route {}
 
 class MockNavigatorObserver extends Mock implements NavigatorObserver {}
+
+class OnUnknownRouteNavigated extends StatelessWidget {
+  const OnUnknownRouteNavigated({
+    required this.name,
+    this.arguments,
+    super.key,
+  });
+
+  final String? name;
+  final Object? arguments;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          const Text('Unknown route'),
+          Text('Name: $name'),
+          Text('Arguments: $arguments'),
+        ],
+      ),
+    );
+  }
+}
 
 class ConsumerBuilderWrapper extends ConsumerWidget {
   const ConsumerBuilderWrapper(
@@ -86,6 +111,14 @@ Future<void> pumpWidget(
           widget: widget,
         ),
       ),
+      onUnknownRoute: (settings) {
+        return CupertinoPageRoute(
+          builder: (_) => OnUnknownRouteNavigated(
+            name: settings.name,
+            arguments: settings.arguments,
+          ),
+        );
+      },
       navigatorObservers:
           navigatorObserver != null ? [navigatorObserver] : const [],
     ),

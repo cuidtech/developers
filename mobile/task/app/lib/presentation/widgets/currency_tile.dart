@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/currency.dart';
@@ -34,10 +33,9 @@ class CurrencyTile extends StatelessWidget {
           exchangeRateIcon,
         ],
       ),
-      onTap: () => Navigator.of(context).push(
-        CupertinoPageRoute(
-          builder: (context) => CurrencyDetailScreen(currency.code),
-        ),
+      onTap: () => Navigator.of(context).pushNamed(
+        CurrencyDetailScreen.routeName,
+        arguments: currency.code,
       ),
     );
   }

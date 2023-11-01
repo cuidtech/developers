@@ -1,3 +1,4 @@
+import 'package:app/core/utils.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../mock_data.dart';
@@ -11,7 +12,10 @@ void main() {
       final currency = currencyModel.toCurrency();
 
       expect(currency.code, equals(code));
-      expect(currency.currentExchangeRate, equals(partialRates.last));
+      expect(
+        currency.currentExchangeRate,
+        equals(partialRates.last.toMoneyString()),
+      );
       expect(currency.isAppreciating, equals(false));
     });
   });

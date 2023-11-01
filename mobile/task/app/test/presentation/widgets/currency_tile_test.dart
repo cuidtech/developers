@@ -31,7 +31,7 @@ void main() {
       await tester.tap(tileFinder);
       await tester.pumpAndSettle();
 
-      verify(() => navigatorObserver.didPush(any(), any())).called(2);
+      verify(() => navigatorObserver.didPush(captureAny(), any())).called(2);
       verify(() => navigatorObserver.navigator).called(1);
       verifyNoMoreInteractions(navigatorObserver);
     });
