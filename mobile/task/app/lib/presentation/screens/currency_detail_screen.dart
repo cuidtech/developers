@@ -54,12 +54,19 @@ class CurrencyDetailColumn extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
+                  flex: 2,
                   child: Text(
                     rates.last.toMoneyString(),
-                    style: Theme.of(context).textTheme.displayLarge,
+                    style: Theme.of(context).textTheme.displayMedium,
+                    textAlign: TextAlign.right,
                   ),
                 ),
-                exchangeRateIcon,
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: exchangeRateIcon,
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 20),

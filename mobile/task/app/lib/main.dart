@@ -13,7 +13,7 @@ class CurrencyExchange extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Currency Exchange',
+      title: 'Cuid Currency Exchange',
       theme: ThemeData.light(useMaterial3: true),
       darkTheme: ThemeData.dark(useMaterial3: true),
       home: const HomeScreen(),

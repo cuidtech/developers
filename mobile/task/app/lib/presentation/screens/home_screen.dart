@@ -14,7 +14,7 @@ class HomeScreen extends ConsumerWidget {
     final currenciesState = ref.watch(getCurrenciesProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Currency Exchange'),
+        title: const Text('Cuid Currency Exchange'),
       ),
       body: currenciesState.renderWhen(
         (data) => CurrenciesList(data),
