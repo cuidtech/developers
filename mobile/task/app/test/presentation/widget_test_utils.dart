@@ -4,8 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-const screenWidth = 1170.0;
-const screenHeight = 2532.0;
+const screenWidth = 750.0;
+const screenHeight = 1334.0;
+
+/// iPhone SE pixel resolution
 const defaultScreenSize = Size(screenWidth, screenHeight);
 
 class MockRoute extends Mock implements Route {}
@@ -104,6 +106,8 @@ Future<void> pumpWidget(
   }
   await tester.pumpWidget(
     MaterialApp(
+      theme: ThemeData.light(useMaterial3: true),
+      darkTheme: ThemeData.dark(useMaterial3: true),
       home: Scaffold(
         body: ProviderScopeWrapper(
           isConsumer: isConsumer,
