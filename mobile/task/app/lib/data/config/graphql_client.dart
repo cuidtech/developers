@@ -5,10 +5,14 @@ part 'graphql_client.g.dart';
 
 @Riverpod(keepAlive: true)
 GraphQLClient graphQlClient(GraphQlClientRef ref) {
-  const host = 'http://localhost:4000/graphql';
+  const host = String.fromEnvironment(
+    'HOST',
+    defaultValue: 'localhost',
+  );
+  const uri = 'http://$host:4000/graphql';
 
   final cache = GraphQLCache();
-  final link = HttpLink(host);
+  final link = HttpLink(uri);
 
   return GraphQLClient(link: link, cache: cache);
 }

@@ -17,6 +17,40 @@ dart run build_runner build
 ```bash
 flutter doctor
 ```
+6. Run the app! 
+If you're testing on android simulator, you should change `HOST` environment variable, the default value is `localhost` and works well for iOS simulator.
+```bash
+flutter run --dart-define HOST=10.0.2.2
+```
+
+You can also add this config to your `.vscode/launch.json`:
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "app (android emulator)",
+      "request": "launch",
+      "type": "dart",
+      "args": [
+        "--dart-define",
+        "HOST=10.0.2.2"
+      ]
+    },
+  ]
+}
+```
+
+## Run the tests!
+1. To run unit and widget tests:
+```bash
+flutter test
+```
+2. To run integration test:
+```bash
+flutter test integration_test
+```
+NOTE: you should have a device running.
 
 ## App Features
 1. Display a list of all available currencies
