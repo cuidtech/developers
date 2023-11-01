@@ -22,7 +22,6 @@ const getCurrenciesQuery = r'''
 const getCurrencyDetailQuery = r'''
   query GetCurrencyDetail($code: String!) {
     exchangeRate(code: $code) {
-      code
       description
       rates
     }

@@ -1,7 +1,7 @@
 import 'package:app/core/utils.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:app/core/mock_data.dart';
+import 'package:app/core/fake_data.dart';
 import '../model_factory.dart';
 
 void main() {

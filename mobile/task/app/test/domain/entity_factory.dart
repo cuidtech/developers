@@ -2,7 +2,7 @@ import 'package:app/core/utils.dart';
 import 'package:app/domain/entities/currency.dart';
 import 'package:app/domain/entities/detailed_currency.dart';
 
-import 'package:app/core/mock_data.dart';
+import 'package:app/core/fake_data.dart';
 
 Currency createCurrency({
   String code = code,
@@ -17,12 +17,10 @@ Currency createCurrency({
 }
 
 DetailedCurrency createDetailedCurrency({
-  String code = code,
   String description = description,
   List<double> rates = rates,
 }) {
   return DetailedCurrency(
-    code: code,
     description: description,
     rates: rates,
   );

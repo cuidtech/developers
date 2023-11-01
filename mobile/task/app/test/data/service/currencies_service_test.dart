@@ -6,7 +6,7 @@ import 'package:app/data/service/currencies_service.dart';
 import 'package:app/data/models/currency_model.dart';
 import 'package:app/data/models/detailed_currency_model.dart';
 
-import 'package:app/core/mock_data.dart';
+import 'package:app/core/fake_data.dart';
 
 class MockGraphQLClient extends Mock implements GraphQLClient {}
 
@@ -69,7 +69,6 @@ void main() {
         final currency = await currenciesService.getCurrencyDetail(code);
 
         expect(currency, isA<DetailedCurrencyModel>());
-        expect(currency.code, equals(code));
         expect(currency.description, equals(description));
         expect(currency.rates, equals(rates));
       });

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:app/core/mock_data.dart';
+import 'package:app/core/fake_data.dart';
 import '../model_factory.dart';
 
 void main() {
@@ -10,7 +10,6 @@ void main() {
 
       final detailedCurrency = detailedCurrencyModel.toDetailedCurrency();
 
-      expect(detailedCurrency.code, equals(code));
       expect(detailedCurrency.description, equals(description));
       expect(detailedCurrency.rates, equals(rates));
     });

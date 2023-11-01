@@ -37,7 +37,6 @@ const rates = [
 
 const getCurrencyDetailResponse = {
   'exchangeRate': {
-    'code': code,
     'description': description,
     'rates': rates,
   }

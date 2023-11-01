@@ -10,7 +10,6 @@ class DetailedCurrencyModel with _$DetailedCurrencyModel {
   const DetailedCurrencyModel._();
 
   const factory DetailedCurrencyModel({
-    required String code,
     required String description,
     required List<double> rates,
   }) = _DetailedCurrencyModel;
@@ -20,7 +19,6 @@ class DetailedCurrencyModel with _$DetailedCurrencyModel {
 
   /// Converts a [DetailedCurrencyModel] to a [DetailedCurrency].
   DetailedCurrency toDetailedCurrency() => DetailedCurrency(
-        code: code,
         description: description,
         rates: rates,
       );
