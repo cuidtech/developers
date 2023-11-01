@@ -15,7 +15,6 @@ class HomeScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Currency Exchange'),
-        backgroundColor: Theme.of(context).primaryColorDark,
       ),
       body: currenciesState.renderWhen(
         (data) => CurrenciesList(data),

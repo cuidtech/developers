@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/currency.dart';
@@ -34,7 +35,7 @@ class CurrencyTile extends StatelessWidget {
         ],
       ),
       onTap: () => Navigator.of(context).push(
-        MaterialPageRoute(
+        CupertinoPageRoute(
           builder: (context) => CurrencyDetailScreen(currency.code),
         ),
       ),
