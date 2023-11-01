@@ -20,9 +20,9 @@ const getCurrenciesQuery = r'''
 
 @visibleForTesting
 const getCurrencyDetailQuery = r'''
-  {
+  query GetCurrencyDetail($code: String!) {
     exchangeRate(code: $code) {
-		  code
+      code
       description
       rates
     }
