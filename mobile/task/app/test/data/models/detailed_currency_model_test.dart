@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import '../mock_data.dart';
+import 'package:app/core/mock_data.dart';
 import '../model_factory.dart';
 
 void main() {

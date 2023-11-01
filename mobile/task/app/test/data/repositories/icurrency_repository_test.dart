@@ -5,7 +5,7 @@ import 'package:app/data/repositories/icurrency_repository.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../domain/entity_factory.dart';
-import '../mock_data.dart';
+import 'package:app/core/mock_data.dart';
 import '../model_factory.dart';
 
 class MockCurrenciesService extends Mock implements CurrenciesService {}

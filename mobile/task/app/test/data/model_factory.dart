@@ -1,7 +1,7 @@
 import 'package:app/data/models/currency_model.dart';
 import 'package:app/data/models/detailed_currency_model.dart';
 
-import 'mock_data.dart';
+import 'package:app/core/mock_data.dart';
 
 CurrencyModel createCurrencyModel({
   String code = code,

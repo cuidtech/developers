@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../../data/mock_data.dart';
+import 'package:app/core/mock_data.dart';
 import '../../domain/entity_factory.dart';
 import '../widget_test_utils.dart';
 
