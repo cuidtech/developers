@@ -1,12 +1,12 @@
 import 'package:app/data/service/currencies_service.dart';
 import 'package:app/domain/entities/failure.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:app/data/icurrency_repository.dart';
+import 'package:app/data/repositories/icurrency_repository.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../domain/entity_factory.dart';
-import 'mock_data.dart';
-import 'model_factory.dart';
+import '../../domain/entity_factory.dart';
+import '../mock_data.dart';
+import '../model_factory.dart';
 
 class MockCurrenciesService extends Mock implements CurrenciesService {}
 

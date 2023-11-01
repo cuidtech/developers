@@ -1,11 +1,11 @@
 import 'dart:developer';
 
-import '../domain/entities/currency.dart';
-import '../domain/entities/detailed_currency.dart';
-import '../domain/entities/failure.dart';
-import '../domain/currency_repository.dart';
-import 'models/currency_model.dart';
-import 'service/currencies_service.dart';
+import '../../domain/entities/currency.dart';
+import '../../domain/entities/detailed_currency.dart';
+import '../../domain/entities/failure.dart';
+import '../../domain/currency_repository.dart';
+import '../models/currency_model.dart';
+import '../service/currencies_service.dart';
 
 class ICurrencyRepository implements CurrencyRepository {
   const ICurrencyRepository(this._currenciesService);

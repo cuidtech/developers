@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../data/icurrency_repository.dart';
+import '../data/repositories/icurrency_repository.dart';
 import '../data/service/currencies_service.dart';
 import 'entities/detailed_currency.dart';
 import 'entities/currency.dart';
