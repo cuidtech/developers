@@ -1,6 +1,6 @@
 # currency_exchange
 
-A simple, currency exchage app that consumes the API from localhost:4000 GraphQL endpoint.
+A simple, currency exchage app that consumes a GraphQL endpoint.
 
 ## Getting Started
 1. [Install the most recent version of Flutter](https://docs.flutter.dev/get-started/install), and make sure you also set up `ios` and `android` platforms.
@@ -46,11 +46,10 @@ You can also add this config to your `.vscode/launch.json`:
 ```bash
 flutter test
 ```
-2. To run integration test:
+2. To run integration test you should have a device running:
 ```bash
 flutter test integration_test
 ```
-NOTE: you should have a device running.
 
 ## App Features
 1. Display a list of all available currencies
