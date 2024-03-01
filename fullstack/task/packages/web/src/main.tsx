@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import App from './App';
+import { LOCALHOST_API_URL } from './config';
+import './styles.css';
 
 const client = new ApolloClient({
-    uri: 'http://localhost:4000/graphql',
+    uri: LOCALHOST_API_URL,
     cache: new InMemoryCache(),
 });
 

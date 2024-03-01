@@ -9,6 +9,7 @@ async function bootstrap() {
     const port = configService.get('PORT');
 
     const host = '0.0.0.0';
+    console.log('listening on ', host, ':', port);
     await app.listen(port, host);
 }
 bootstrap();

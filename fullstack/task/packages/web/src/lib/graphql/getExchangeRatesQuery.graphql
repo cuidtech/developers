@@ -1,0 +1,9 @@
+query ExchangeRates($dateStr: String!) {
+    exchangeRates(dateStr: $dateStr) {
+        amount
+        rate
+        code
+        country
+        currency
+    }
+}

@@ -9,8 +9,7 @@ import { graphqlConfig } from './config';
         ConfigModule.forRoot({
             isGlobal: true,
         }),
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        GraphQLModule.forRoot<any>(graphqlConfig),
+        GraphQLModule.forRoot<unknown>(graphqlConfig),
         ...modules,
     ],
     controllers: [],
