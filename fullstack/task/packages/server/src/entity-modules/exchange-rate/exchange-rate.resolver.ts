@@ -6,7 +6,6 @@ import { ExchangeRateService } from './exchange-rate.service';
 export class ExchangeRateResolver {
     constructor(private readonly exchangeRateService: ExchangeRateService) {}
 
-    // Implement a GraphQL Query that returns the exchange rates
     @Query(() => [ExchangeRate])
     async exchangeRates(@Args('dateStr') dateStr: string): Promise<ExchangeRate[]> {
         return this.exchangeRateService.getExchangeRates(dateStr);

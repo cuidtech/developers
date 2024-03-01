@@ -11,7 +11,7 @@ function ExchangeRates() {
 
     return (
         <div>
-            <h2>Exchange Rates for {formattedToday}</h2> {/* Headline indicating today's date */}
+            <h2>Exchange Rates for {formattedToday}</h2>
             {loading && <p>Loading...</p>}
             {error && <p>Error loading data</p>}
             {data && (
